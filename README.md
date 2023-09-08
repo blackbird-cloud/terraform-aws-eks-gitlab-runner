@@ -8,13 +8,15 @@ module "gitlab_runner" {
   source  = "blackbird-cloud/eks-gitlab-runner/aws"
   version = "~> 1"
 
-  name                    = "production_runner"
-  cluster_id              = "production_cluster"
-  default_image           = "registry.gitlab.com/gitlab-org/terraform-images/stable:latest"
-  replicas                = 1
-  gitlab_com_runner_token = "xxxxxxxxxxxxxxx"
-  runner_tags             = "production"
-  run_untagged            = false
+  create_namespace = true
+  role_arn         = "arn:xxxxxx:xx/xxxx/xxx"
+  name             = "production_runner"
+  cluster_name     = "production_cluster"
+  default_image    = "registry.gitlab.com/gitlab-org/terraform-images/stable:latest"
+  replicas         = 1
+  runner_token     = "xxxxxxxxxxxxxxx"
+  runner_tags      = "production"
+  run_untagged     = false
 }
 ```
 
@@ -23,28 +25,28 @@ module "gitlab_runner" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 4.15.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.15.0 |
 | <a name="requirement_helm"></a> [helm](#requirement\_helm) | 2.4.1 |
-| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | 2.23.0 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | 2.22.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.15.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.15.0 |
 | <a name="provider_helm"></a> [helm](#provider\_helm) | 2.4.1 |
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.23.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.22.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
 | [helm_release.runner](https://registry.terraform.io/providers/hashicorp/helm/2.4.1/docs/resources/release) | resource |
-| [kubernetes_namespace.ns](https://registry.terraform.io/providers/hashicorp/kubernetes/2.23.0/docs/resources/namespace) | resource |
-| [kubernetes_secret.secret](https://registry.terraform.io/providers/hashicorp/kubernetes/2.23.0/docs/resources/secret) | resource |
-| [kubernetes_service_account.sa](https://registry.terraform.io/providers/hashicorp/kubernetes/2.23.0/docs/resources/service_account) | resource |
-| [aws_eks_cluster.cluster](https://registry.terraform.io/providers/hashicorp/aws/4.15.0/docs/data-sources/eks_cluster) | data source |
-| [aws_eks_cluster_auth.cluster](https://registry.terraform.io/providers/hashicorp/aws/4.15.0/docs/data-sources/eks_cluster_auth) | data source |
+| [kubernetes_namespace.ns](https://registry.terraform.io/providers/hashicorp/kubernetes/2.22.0/docs/resources/namespace) | resource |
+| [kubernetes_secret.secret](https://registry.terraform.io/providers/hashicorp/kubernetes/2.22.0/docs/resources/secret) | resource |
+| [kubernetes_service_account.sa](https://registry.terraform.io/providers/hashicorp/kubernetes/2.22.0/docs/resources/service_account) | resource |
+| [aws_eks_cluster.cluster](https://registry.terraform.io/providers/hashicorp/aws/5.15.0/docs/data-sources/eks_cluster) | data source |
+| [aws_eks_cluster_auth.cluster](https://registry.terraform.io/providers/hashicorp/aws/5.15.0/docs/data-sources/eks_cluster_auth) | data source |
 
 ## Inputs
 
