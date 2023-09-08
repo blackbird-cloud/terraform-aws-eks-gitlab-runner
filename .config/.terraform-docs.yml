@@ -14,8 +14,8 @@ sections:
     - modules
 
 content: |-
-  # <Cloud> <Main resource> Terraform module
-  A Terraform module which configures your <Cloud> <Main resource>. <Relevant docs>
+  # AWS EKS GitLab Runner Terraform module
+  A Terraform module which deploys GitLab Runner on your AWS EKS cluster.
   {{ .Header }}
 
   ## Example
