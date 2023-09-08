@@ -1,11 +1,11 @@
 resource "helm_release" "runner" {
-  name             = var.name
-  timeout          = 180
-  chart            = "gitlab-runner"
-  repository       = "https://charts.gitlab.io"
-  namespace        = var.namespace
-  create_namespace = var.create_namespace
-  version          = "0.28.0"
+  depends_on = [kubernetes_namespace.ns]
+  name       = var.name
+  timeout    = 180
+  chart      = "gitlab-runner"
+  repository = "https://charts.gitlab.io"
+  namespace  = var.namespace
+  version    = "0.28.0"
 
   values = [
     templatefile("./tmpl/runner.yaml", {
