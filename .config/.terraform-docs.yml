@@ -14,8 +14,8 @@ sections:
     - modules
 
 content: |-
-  # AWS EKS GitLab Runner Terraform module
-  A Terraform module which deploys GitLab Runner on your AWS EKS cluster.
+  {{ include "./.config/title.md"}}
+
   {{ .Header }}
 
   ## Example
